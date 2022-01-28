@@ -17,7 +17,7 @@ export class AppComponent {
   public monScore = 2;
   public ennemiScore = 2;
   constructor(public RGS: ReversiGameEngineService, private ia: IaService) {
-    
+    this.RGS.gameStateObs
   }
 
 
@@ -47,12 +47,11 @@ export class AppComponent {
   onPredictionClick(i: number, j:number){
     console.log("Prediction clicked.");
     this.RGS.play(i,j);
-
-    this.updateScore();
     
   }
 
-  private updateScore(): void{
+    
+  updateScore(): void{
     this.monScore = 0;
     this.ennemiScore = 0;
     for(let i=0; i<this.RGS.board.length; i++){

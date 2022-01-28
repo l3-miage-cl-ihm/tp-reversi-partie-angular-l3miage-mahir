@@ -29,7 +29,7 @@
         <td *ngFor="let column of RGS.board; let j = index">
             <div class="pionAllie" *ngIf="RGS.board[i][j]==me"><img width="100" height="100" class="pawn" src="../assets/white_piece.svg"></div>
             <div class="pionEnnemi" *ngIf="RGS.board[i][j]==ennemi"><img width="100" height="100" class="pawn" src="../assets/dark_piece.svg"></div>
-            <div class="pionPrediction" *ngIf="checkIfIsWherePositionICanPlay(i,j) "
+            <div class="pionPrediction" *ngIf="checkIfIsWherePositionICanPlay(i,j) && this.RGS.turn ===me "
             (click)="onPredictionClick(i,j)"></div>
         </td>
     </tr>
