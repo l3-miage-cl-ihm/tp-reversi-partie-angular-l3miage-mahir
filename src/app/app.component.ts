@@ -1,5 +1,4 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Component } from '@angular/core';
+import { Component, Input, IterableDiffers } from '@angular/core';
 import { IaService } from './ia.service';
 import { ReversiGameEngineService } from './reversi-game-engine.service';
 
@@ -16,10 +15,11 @@ export class AppComponent {
   public me = "Player1";
   public monScore = 2;
   public ennemiScore = 2;
+  public boardLength;
+  
   constructor(public RGS: ReversiGameEngineService, private ia: IaService) {
-    this.RGS.gameStateObs
+    this.boardLength = RGS.board.length;
   }
-
 
 
 
@@ -55,13 +55,15 @@ export class AppComponent {
     this.monScore = 0;
     this.ennemiScore = 0;
     for(let i=0; i<this.RGS.board.length; i++){
-      for(let j=0; j<this.RGS.board.length; j++)
+      for(let j=0; j<this.RGS.board.length; j++){
         if(this.RGS.board[i][j] === this.me){
           this.monScore++;
         }else if(this.RGS.board[i][j] === "Player2"){
           this.ennemiScore++;
         }
+      }
     }
+
   }
 }
 
