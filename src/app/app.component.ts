@@ -19,6 +19,10 @@ export class AppComponent {
   
   constructor(public RGS: ReversiGameEngineService, private ia: IaService) {
     this.boardLength = RGS.board.length;
+
+    RGS.gameStateObs.subscribe(gs=>
+      this.updateScore()
+    )
   }
 
 
