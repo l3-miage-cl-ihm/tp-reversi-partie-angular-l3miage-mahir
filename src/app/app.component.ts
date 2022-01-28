@@ -30,8 +30,6 @@ export class AppComponent {
    * @returns 
    */
   checkIfIsWherePositionICanPlay(i: number, j: number): boolean{
-    
-    
     let isPossible = false;
     let coordonneePosibles = this.RGS.whereCanPlay();
     let count = 0;
